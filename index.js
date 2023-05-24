@@ -33,9 +33,9 @@ app.use(express.static("public"))
 app.use("/users", userRoutes)
 app.use("/login", loginRoutes)
 
-app.get("/", (req, res) => {
-  res.send("Homepage")
-})
+// app.get("/", (req, res) => {
+//   res.send("Homepage")
+// })
 
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)

@@ -1,11 +1,29 @@
 import userService from "../services/users/index.js"
 
 const {
+  registerService,
   getAllUsersService,
   getUserByIDService,
   updateUserService,
   deleteUserService,
 } = userService
+
+export const registerUserController = async (req, res) => {
+  try {
+    await registerService(req.body).then((user) => {
+      res.status(200).send({
+        data: user,
+        status: true,
+        message: "Register User Success",
+      })
+    })
+  } catch (error) {
+    res.status(500).send({
+      status: false,
+      message: error.message,
+    })
+  }
+}
 
 export const getAllUserController = async (req, res) => {
   try {

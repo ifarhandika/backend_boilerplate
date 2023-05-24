@@ -24,6 +24,10 @@ export const usersModel = db.define("users", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   active_status: {
     type: DataTypes.ENUM({
       values: ["1", "-1"],
