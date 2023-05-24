@@ -1,6 +1,6 @@
 import { usersModel } from "../../models/users.model.js"
 
-export const updateUserService = async (body, params) => {
+const updateUserService = async (body, params) => {
   const { username, batch } = body
   const { id } = params
   const userData = {
@@ -18,3 +18,5 @@ export const updateUserService = async (body, params) => {
     },
   })
 }
+
+export default updateUserService

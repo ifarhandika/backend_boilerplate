@@ -1,5 +1,6 @@
-import { errorHandler } from "../errorHandler.js"
-import { loginService } from "../services/auth/loginService.js"
+import authService from "../services/auth/index.js"
+
+const { loginService } = authService
 
 export const loginController = async (req, res) => {
   try {

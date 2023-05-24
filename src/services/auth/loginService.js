@@ -1,6 +1,6 @@
 import { authenticateUser } from "../../middlewares/auth.middleware.js"
 
-export const loginService = async (body) => {
+const loginService = async (body) => {
   const { username } = body
 
   const accessToken = authenticateUser({ data: username })
@@ -9,4 +9,6 @@ export const loginService = async (body) => {
     accessToken,
   }
 }
+
+export default loginService
 

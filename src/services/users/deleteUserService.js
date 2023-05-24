@@ -1,6 +1,6 @@
 import { usersModel } from "../../models/users.model.js"
 
-export const deleteUserService = async (params) => {
+const deleteUserService = async (params) => {
   const { id } = params
 
   await usersModel.update(
@@ -19,3 +19,5 @@ export const deleteUserService = async (params) => {
     },
   })
 }
+
+export default deleteUserService

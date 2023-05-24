@@ -1,5 +1,7 @@
 import { usersModel } from "../../models/users.model.js"
 
-export const getAllUsersService = async () => {
+const getAllUsersService = async () => {
   return await usersModel.findAll({})
 }
+
+export default getAllUsersService

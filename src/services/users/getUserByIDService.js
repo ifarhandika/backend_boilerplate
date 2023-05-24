@@ -1,6 +1,6 @@
 import { usersModel } from "../../models/users.model.js"
 
-export const getUserByIDService = async (body) => {
+const getUserByIDService = async (body) => {
   const { id } = body
 
   return await usersModel.findOne({
@@ -9,3 +9,5 @@ export const getUserByIDService = async (body) => {
     },
   })
 }
+
+export default getUserByIDService

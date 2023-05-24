@@ -1,7 +1,11 @@
-import { deleteUserService } from "../services/users/deleteUserService.js"
-import { getAllUsersService } from "../services/users/getAllUsersService.js"
-import { getUserByIDService } from "../services/users/getUserByIDService.js"
-import { updateUserService } from "../services/users/updateUserService.js"
+import userService from "../services/users/index.js"
+
+const {
+  getAllUsersService,
+  getUserByIDService,
+  updateUserService,
+  deleteUserService,
+} = userService
 
 export const getAllUserController = async (req, res) => {
   try {
@@ -9,7 +13,7 @@ export const getAllUserController = async (req, res) => {
       res.status(200).send({
         data: user,
         status: true,
-        message: "Get User Success",
+        message: "Get All Users Success",
       })
     })
   } catch (error) {
@@ -36,23 +40,6 @@ export const getUserByIDController = async (req, res) => {
     })
   }
 }
-
-// export const createUser = async (req, res) => {
-//   try {
-//     await createUsers(req.body).then((user) => {
-//       res.status(200).send({
-//         data: user,
-//         status: true,
-//         message: "Create User Success",
-//       })
-//     })
-//   } catch (error) {
-//     res.status(500).send({
-//       status: false,
-//       message: error.message,
-//     })
-//   }
-// }
 
 export const updateUserController = async (req, res) => {
   try {

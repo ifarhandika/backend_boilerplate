@@ -1,3 +1,5 @@
-export const registerService = async () => {
+const registerService = async () => {
   console.log("resgitester")
 }
+
+export default registerService
