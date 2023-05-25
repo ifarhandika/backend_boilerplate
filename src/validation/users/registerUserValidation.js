@@ -22,6 +22,18 @@ const registerUserValidation = [
       return true
     })
     .withMessage("Username already exists"),
+  body("password")
+    .custom((password) => {
+      const regexPattern = new RegExp(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+      )
+      if (!regexPattern.test(password)) return false
+      return true
+    })
+    .withMessage(
+      "Password must contain at least one uppercase, one lowercase, one digit, one special character and minimum eight characters in length"
+    ),
+  body("email").isEmail().withMessage("Please enter a valid e-mail address"),
   validationErrorHandling(),
 ]
 

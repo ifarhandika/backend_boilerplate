@@ -4,6 +4,9 @@ dotenv.config()
 import express from "express"
 import bodyParser from "body-parser"
 import multer from "multer"
+import helmet from "helmet"
+import cors from "cors"
+import morgan from "morgan"
 
 import { db } from "./config/database.js"
 
@@ -12,7 +15,6 @@ const upload = multer()
 //Import routes
 import userRoutes from "./src/routes/users.route.js"
 import loginRoutes from "./src/routes/auth.route.js"
-import { extractToken, verifyUser } from "./src/middlewares/auth.middleware.js"
 
 //Connect to Database
 db.authenticate()
@@ -23,8 +25,10 @@ db.authenticate()
 const app = express()
 const PORT = 3000
 
-//Use JSON for the app
-app.use(bodyParser.json())
+app.use(helmet())
+app.use(bodyParser.json()) //Use JSON for the app
+app.use(cors())
+// app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(upload.array())
 app.use(express.static("public"))
